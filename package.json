@@ -1,0 +1,14 @@
+{
+  "name": "sitevantage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SiteVantage construction intelligence demonstration by SRS Logics",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/validate.mjs",
+    "export:demo": "node scripts/export-demo.mjs"
+  }
+}

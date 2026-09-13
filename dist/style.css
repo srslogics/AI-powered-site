@@ -31,3 +31,53 @@ body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}as
 
 /* Software identity */
 .brand{letter-spacing:-.02em}.brandmark{font-size:15px;letter-spacing:-.055em;flex-shrink:0}.brand>span:last-child{white-space:nowrap}.brand small{letter-spacing:.015em;font-size:10px;font-weight:400}
+
+/* Client walkthrough audit: stable navigation, readable states and image proportions. */
+aside{overflow-y:auto;overscroll-behavior:contain}aside>*{flex-shrink:0}
+body.nav-open,body.dialog-open{overflow:hidden}
+.workspace,main,.stats>*,.page-heading>*,.overview-grid>*,.progress-layout>*{min-width:0}
+main:focus{outline:none}
+.header-demo{display:inline-flex!important;flex-shrink:0;white-space:nowrap}
+.breadcrumb{min-width:0}.avatar{flex-shrink:0}
+button:disabled{cursor:default;opacity:.48;transform:none}
+button:disabled:hover{background:var(--surface);border-color:var(--line)}
+.camera-photo{position:absolute;inset:0;width:100%;height:100%;display:block;filter:brightness(.95) saturate(.78)}
+.progress-current,.progress-picture .comparison{background-image:none}
+.progress-picture .camera-photo{filter:none}
+.field-error{color:#a13d2c;font-size:13px;line-height:1.5;margin:8px 0}
+.field-error:empty{display:none}
+.incident-review textarea[aria-invalid=true]{border-color:#aa3f35;box-shadow:0 0 0 1px #aa3f35}
+#connection-result{margin-top:12px;line-height:1.6}
+.empty button{margin-top:14px}
+.table-scroll{overflow-x:auto;overscroll-behavior-x:contain}
+.modal-head>div{min-width:0}.modal-head .iconbtn{flex-shrink:0;min-width:40px;min-height:40px}
+.camera-related button{width:100%;margin-top:5px}
+.map g[role=button]:focus-visible circle{stroke:#925436;stroke-width:5px}
+.chart-foot{gap:14px;flex-wrap:wrap}.chart-foot>span{font-size:12px}
+.noscript-message{position:fixed;inset:25% 10% auto;padding:28px;background:#fffdf9;color:#292b2c;border:1px solid #925436;z-index:100}
+@media(max-width:1150px){.brand{font-size:18px}.brand small{font-size:9px}.breadcrumb{font-size:12px}}
+@media(max-width:640px){
+ .header-demo{font-size:10px;padding:3px 7px}.breadcrumb{font-size:11px;line-height:1.4}
+ .breadcrumb span{padding:0 3px}header{gap:8px}
+ .menu{padding:6px;min-width:40px;min-height:40px;flex-shrink:0}
+ .nav-close{min-width:40px;min-height:40px;top:3px;right:3px}
+ .filter-tabs{max-width:100%}.panel-head{flex-wrap:wrap}
+ .focus-view,.camera-view{aspect-ratio:3/2;height:auto}
+ .progress-picture{aspect-ratio:3/2;height:auto}
+ .slider-control{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+ .slider-control input{width:100%;min-height:32px;margin:0}
+ .progress-picture span{font-size:10px;max-width:48%}
+ .stat .label{overflow-wrap:anywhere}.map-legend span:last-child{margin-left:0}
+ .incident-table td{min-width:0;overflow-wrap:anywhere}
+ .camera-evidence{aspect-ratio:3/2;height:auto}
+ .camera-detail-grid .camera-evidence{height:auto}
+ footer span{flex-basis:100%}
+}
+@media(max-width:360px){
+ .actions{flex-direction:column}.actions button{width:100%}
+ .monitor-tabs button{font-size:11px;padding:5px 6px}
+ .progress-picture span{font-size:9px;padding:4px}
+ .stat .value{font-size:29px}.filter-tabs button{font-size:11px;padding:6px 8px}
+}
+.progress-picture{cursor:ew-resize;touch-action:pan-y;user-select:none}
+.report{display:flex;flex-direction:column;align-items:flex-start}.report button{margin-top:auto}.report p{margin-bottom:22px}

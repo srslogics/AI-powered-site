@@ -14,8 +14,8 @@ for (const path of files) {
 }
 const html = await readFile(new URL('dist/index.html', root), 'utf8');
 if (!html.includes('SiteVantage')) throw new Error('Expected SiteVantage application entry.');
-for (const ref of ['href="style.css"', 'src="app.js"']) {
-  if (!html.includes(ref)) throw new Error(`Missing application reference: ${ref}`);
+for (const ref of [/href="style\.css(?:\?[^" ]*)?"/, /src="app\.js(?:\?[^" ]*)?"/]) {
+  if (!ref.test(html)) throw new Error(`Missing application reference: ${ref}`);
 }
 execFileSync(process.execPath, ['--check', fileURLToPath(new URL('dist/app.js', root))], { stdio: 'inherit' });
 console.log(`SiteVantage validated: ${files.length} deployment files ready in dist/.`);

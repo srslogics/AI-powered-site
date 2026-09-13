@@ -11,8 +11,8 @@ js = js.replace(imageLoader, `const imageData=${JSON.stringify(images)};const im
 const progress = await dataUrl('dist/assets/progress-diptych.png', 'image/png');
 css = css.replaceAll('assets/progress-diptych.png', progress);
 js = js.replaceAll('assets/progress-diptych.png', progress);
-html = html.replace('<link rel="stylesheet" href="style.css">', () => `<style>${css}</style>`)
-  .replace('<script src="app.js"></script>', () => `<script>${js}</script>`);
+html = html.replace(/<link rel="stylesheet" href="style\.css(?:\?[^"]*)?">/, () => `<style>${css}</style>`)
+  .replace(/<script src="app\.js(?:\?[^"]*)?"><\/script>/, () => `<script>${js}</script>`);
 if (html.includes('assets/') || html.includes('<script src=')) throw new Error('Standalone demo has unresolved local files.');
 await mkdir(new URL('releases/', root), { recursive: true });
 await writeFile(new URL('releases/SiteVantage_Demo.html', root), html);

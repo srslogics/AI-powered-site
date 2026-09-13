@@ -13,7 +13,9 @@ css = css.replaceAll('assets/progress-diptych.png', progress);
 js = js.replaceAll('assets/progress-diptych.png', progress);
 html = html.replace(/<link rel="stylesheet" href="style\.css(?:\?[^"]*)?">/, () => `<style>${css}</style>`)
   .replace(/<script src="app\.js(?:\?[^"]*)?"><\/script>/, () => `<script>${js}</script>`);
-if (html.includes('assets/') || html.includes('<script src=')) throw new Error('Standalone demo has unresolved local files.');
+// Public social metadata stays online; all assets used by the demo itself must be embedded.
+const localContent = html.replace(/<meta\b[^>]*>/g, '');
+if (localContent.includes('assets/') || localContent.includes('<script src=')) throw new Error('Standalone demo has unresolved local files.');
 await mkdir(new URL('releases/', root), { recursive: true });
 await writeFile(new URL('releases/SiteVantage_Demo.html', root), html);
 console.log('Saved releases/SiteVantage_Demo.html with embedded styles, scripts and images.');

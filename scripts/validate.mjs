@@ -7,7 +7,7 @@ const files = [
   'dist/index.html', 'dist/style.css', 'dist/app.js',
   'dist/assets/site-1.jpg', 'dist/assets/site-2.jpg',
   'dist/assets/site-3.jpg', 'dist/assets/progress-diptych.png',
-  'dist/assets/sitevantage-social-preview.png',
+  'dist/assets/sitevantage-k-konsulting-preview.png',
 ];
 for (const path of files) {
   const info = await stat(new URL(path, root));
@@ -21,7 +21,7 @@ for (const ref of [/href="style\.css(?:\?[^" ]*)?"/, /src="app\.js(?:\?[^" ]*)?"
 execFileSync(process.execPath, ['--check', fileURLToPath(new URL('dist/app.js', root))], { stdio: 'inherit' });
 console.log(`SiteVantage validated: ${files.length} deployment files ready in dist/.`);
 
-const socialImage = 'https://ai-powered-site.onrender.com/assets/sitevantage-social-preview.png';
+const socialImage = 'https://ai-powered-site.onrender.com/assets/sitevantage-k-konsulting-preview.png';
 for (const tag of [
   `<meta property="og:image" content="${socialImage}">`,
   '<meta property="og:url" content="https://ai-powered-site.onrender.com/">',
@@ -31,7 +31,7 @@ for (const tag of [
 ]) {
   if (!html.includes(tag)) throw new Error(`Missing social preview metadata: ${tag}`);
 }
-const png = await readFile(new URL('dist/assets/sitevantage-social-preview.png', root));
+const png = await readFile(new URL('dist/assets/sitevantage-k-konsulting-preview.png', root));
 if (png.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a' || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {
   throw new Error('Expected a 1200 × 630 PNG social preview.');
 }

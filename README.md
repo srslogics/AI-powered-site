@@ -1,6 +1,8 @@
 # SiteVantage
 
-**Construction Intelligence by SRS Logics**
+**Construction Intelligence · Presented by K Konsulting**
+
+Technology & development partner: SRS Logics.
 
 An interactive, single-site demonstration of construction monitoring: camera views, safety incidents, workforce presence, vehicles and equipment, progress comparisons, and reports.
 
@@ -60,7 +62,7 @@ This is a presentation demo. Camera images, AI events, counts, dates, and progre
 | `scripts/validate.mjs` | Deployment-file and JavaScript validation |
 | `scripts/export-demo.mjs` | Rebuilds the standalone demo from `dist/` |
 | `releases/SiteVantage_Demo.html` | Download and open directly in a browser |
-| `docs/SRS_Logics_Construction_Intelligence_Proposal.pdf` | Client proposal |
+| `docs/K_Konsulting_Construction_Intelligence_Proposal.pdf` | Client proposal |
 
 After editing the application, regenerate the standalone file:
 
